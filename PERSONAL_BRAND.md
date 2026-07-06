@@ -33,6 +33,14 @@ Caleb's course runs on **9 reflective questions** across four movements. Here's 
 | What's your **origin story** (secret weapon)? | **Skinny & insecure → betrayed by fake natties → the 45 lb natural proof.** |
 | What **cadence** can you keep when life gets messy? | You have a job, so: **weeks 1–2 → 1 YouTube + 3 Reels/week**, then scale to **1 YouTube + daily Reels.** |
 
+### Movement 4 — Association, Credibility & Expansion (verbatim from the transcript)
+| Q (Caleb's exact words) | Your Answer |
+|---|-------------|
+| *"If someone hears your name, what's the first thing that they think of?"* | **"The honest natural guy."** |
+| *"How does every piece of content I make reinforce the associations I want people to make with me?"* | Every post must **show the discipline** and be **simple + repeatable.** |
+| *"What case studies or examples can I share that establish my credibility?"* | **My own before/afters + full transparency logs** (food, sleep, training). |
+| *"How do I know when it is the right time to expand?"* | **When the audience asks for it** — widen into faith/mindset only when the DMs beg for it. |
+
 ---
 
 ## Brand Essence
@@ -117,6 +125,21 @@ You named three gaps. Attack them in this order — each one directly protects r
 - "You don't need a new program. You need to run the old one for a year."
 - "'Natural' influencers hate this post."
 - "I went from 160 to 205. No needles. Just this."
+
+---
+
+## Association, Credibility & Expansion (Caleb's verbatim questions, applied)
+
+**Name association — "the honest natural guy."** This is the single thought you want in someone's head the second they hear your name. Everything else serves this.
+
+**Content filter (run every post through it):** Does this post **show the discipline** *and* is it **simple + repeatable**? If a piece of content doesn't do at least one, it doesn't reinforce "the honest natural guy" — cut it or fix it.
+
+**Credibility stack:**
+1. **Your own before/afters** — time-stamped, no-angles-hiding progress from 160→205.
+2. **Full transparency logs** — open food, sleep, and training so people watch the *honest process*, not just the result. This is what makes "natural" believable and it's hard to fake, so it becomes your moat.
+3. *(Later)* member transformations from the paid tiers, screenshotted back into Pillar 1.
+
+**Expansion trigger:** Don't broaden into faith/mindset/lifestyle on a schedule — **expand when the audience asks for it.** Watch the comments and DMs; when they start begging for the deeper "why," that's your green light to widen. Until then, stay "the honest natural guy."
 
 ---
 
