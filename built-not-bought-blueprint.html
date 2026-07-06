@@ -1,0 +1,564 @@
+<style>
+  :root{
+    /* light — gym chalk ground, iron ink, forged-ember accent */
+    --ground:#EDE7DC;
+    --ground-2:#E4DCCE;
+    --card:#F6F1E8;
+    --ink:#181A1E;
+    --muted:#5E5A50;
+    --line:#D6CDBC;
+    --accent:#B0350F;
+    --accent-ink:#B0350F;
+    --plate:#EEE3CE;
+    --plate-line:#C9A96a;
+    --shadow:0 1px 0 rgba(24,26,30,.04), 0 10px 30px -18px rgba(24,26,30,.35);
+    --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --display:"Helvetica Neue","Arial Black",Arial,system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#111216;
+      --ground-2:#0C0D10;
+      --card:#181A1F;
+      --ink:#ECE6DA;
+      --muted:#9B968A;
+      --line:#292B31;
+      --accent:#E85A2A;
+      --accent-ink:#F0824F;
+      --plate:#1C1A17;
+      --plate-line:#5A4426;
+      --shadow:0 1px 0 rgba(255,255,255,.02), 0 24px 50px -28px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#EDE7DC;--ground-2:#E4DCCE;--card:#F6F1E8;--ink:#181A1E;--muted:#5E5A50;
+    --line:#D6CDBC;--accent:#B0350F;--accent-ink:#B0350F;--plate:#EEE3CE;--plate-line:#C9A96a;
+    --shadow:0 1px 0 rgba(24,26,30,.04), 0 10px 30px -18px rgba(24,26,30,.35);
+  }
+  :root[data-theme="dark"]{
+    --ground:#111216;--ground-2:#0C0D10;--card:#181A1F;--ink:#ECE6DA;--muted:#9B968A;
+    --line:#292B31;--accent:#E85A2A;--accent-ink:#F0824F;--plate:#1C1A17;--plate-line:#5A4426;
+    --shadow:0 1px 0 rgba(255,255,255,.02), 0 24px 50px -28px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--sans);line-height:1.6;
+    font-size:clamp(15px,.5vw + 14px,17px);
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(120% 90% at 50% -10%, color-mix(in oklab,var(--accent) 8%, transparent), transparent 55%);
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+  section{padding-block:clamp(40px,6vw,74px);border-top:1px solid var(--line)}
+
+  /* ---- type ---- */
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 .9rem}
+  h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;margin:0;letter-spacing:-.02em;line-height:.98}
+  h1{font-size:clamp(2.6rem,8vw,5.4rem);text-transform:uppercase;letter-spacing:-.03em}
+  h2{font-size:clamp(1.7rem,3.6vw,2.7rem);text-transform:uppercase}
+  h3{font-size:1.12rem;letter-spacing:.01em;line-height:1.2}
+  p{margin:0;max-width:65ch}
+  .lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink);max-width:60ch}
+  .muted{color:var(--muted)}
+  a{color:var(--accent-ink)}
+  .stack{display:flex;flex-direction:column;gap:1rem}
+  .stack-lg{display:flex;flex-direction:column;gap:1.6rem}
+
+  /* ---- top bar ---- */
+  header.bar{position:sticky;top:0;z-index:20;background:color-mix(in oklab,var(--ground) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:12px}
+  .word{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:.98rem;line-height:.92}
+  .word b{color:var(--accent-ink)}
+  .word span{display:block;font-family:var(--mono);font-weight:400;font-size:.6rem;letter-spacing:.34em;color:var(--muted)}
+  .toggle{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+    background:transparent;border:1px solid var(--line);border-radius:2px;padding:.5rem .7rem;cursor:pointer}
+  .toggle:hover{border-color:var(--accent)}
+  .toggle:focus-visible,a:focus-visible,.tier:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  /* ---- hero ---- */
+  .hero{padding-top:clamp(38px,6vw,68px);border-top:none}
+  .hero .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .hero .kicker b{color:var(--accent-ink);font-weight:400}
+  .hero h1{margin:.7rem 0 0}
+  .hero .thesis{font-family:var(--mono);font-size:clamp(.82rem,1.4vw,1rem);letter-spacing:.02em;color:var(--muted);margin-top:1.1rem}
+  .hero .thesis b{color:var(--ink);font-weight:600}
+  .hero .oneline{margin-top:1.5rem;font-size:clamp(1.1rem,2vw,1.45rem);font-weight:600;max-width:30ch;border-left:3px solid var(--accent);padding-left:1rem}
+
+  /* ---- stat band ---- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-top:2.4rem;background:var(--card)}
+  .stat{padding:1.1rem 1.15rem;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.3rem);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+  .stat .n .u{color:var(--accent-ink)}
+  .stat .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+  @media (max-width:620px){.stats{grid-template-columns:repeat(2,1fr)} .stat:nth-child(2){border-right:none} .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  /* ---- section heading ---- */
+  .shead{display:flex;gap:1rem;align-items:baseline;margin-bottom:1.8rem}
+  .shead .idx{font-family:var(--mono);font-size:.8rem;color:var(--accent-ink);letter-spacing:.1em;padding-top:.4rem}
+  .shead .intent{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.7rem}
+
+  /* ---- cards / grid ---- */
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1.15rem 1.2rem;box-shadow:var(--shadow)}
+  .card h3{margin-bottom:.5rem}
+  .card p{font-size:.94rem;color:var(--muted)}
+  .card .tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:block;margin-bottom:.6rem}
+
+  /* ---- manifesto table ---- */
+  .scroller{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+  .man td{padding:.8rem 1rem;border-top:1px solid var(--line);vertical-align:top}
+  .man tr td:first-child{color:var(--muted);width:50%}
+  .man tr td:last-child{color:var(--ink);font-weight:600;width:50%;border-left:1px solid var(--line)}
+  .man .x{font-family:var(--mono);color:var(--muted);margin-right:.5rem}
+  .man .c{font-family:var(--mono);color:var(--accent-ink);margin-right:.5rem}
+
+  /* ---- offer ladder ---- */
+  .ladder{display:flex;flex-direction:column;gap:10px}
+  .tier{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;background:var(--card);
+    border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:3px;padding:1rem 1.15rem}
+  .tier .price{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .tier .body h3{font-size:1rem}
+  .tier .body p{font-size:.86rem;color:var(--muted);margin-top:.25rem}
+  .tier .target{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap}
+  .tier .target b{display:block;color:var(--ink);font-size:1.1rem;letter-spacing:0}
+  .tier[data-first]{border-left-color:var(--accent);box-shadow:var(--shadow)}
+  .tier[data-first] .flag{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--accent);padding:.15rem .45rem;border-radius:2px;margin-left:.5rem;vertical-align:middle}
+  @media (max-width:620px){.tier{grid-template-columns:1fr;gap:.5rem} .tier .target{text-align:left}}
+
+  /* ---- failproof plate ---- */
+  .plate{background:var(--plate);border:1px solid var(--plate-line);border-radius:3px;padding:1rem 1.15rem;position:relative;overflow:hidden}
+  .plate::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:repeating-linear-gradient(45deg,var(--accent) 0 8px,transparent 8px 16px)}
+  .plate .lab{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 .4rem .5rem}
+  .plate p{font-size:.9rem;margin-left:.5rem}
+  .plate p b{color:var(--ink)}
+  .plate .fix{margin-top:.5rem}
+  .plate .fix .k{font-family:var(--mono);color:var(--accent-ink);font-size:.72rem;letter-spacing:.1em;margin-right:.4rem}
+
+  /* ---- pillars numbered ---- */
+  .steps{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .step{display:grid;grid-template-columns:2.4rem 1fr;gap:1rem;background:var(--card);padding:1rem 1.15rem}
+  .step .num{font-family:var(--mono);color:var(--accent-ink);font-size:.85rem;letter-spacing:.06em;padding-top:.15rem}
+  .step h3{font-size:1rem;margin-bottom:.3rem}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  /* ---- cadence timeline ---- */
+  .rail{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2px}
+  @media (max-width:620px){.rail{grid-template-columns:1fr}}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:1rem 1.15rem}
+  .phase .when{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
+  .phase .cad{font-family:var(--display);font-weight:800;font-size:1.15rem;margin:.4rem 0;letter-spacing:-.02em}
+  .phase p{font-size:.86rem;color:var(--muted)}
+
+  /* ---- hooks ---- */
+  .hooks{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:.86rem}
+  .hooks li{list-style:none;padding:.7rem .9rem;background:var(--card);border:1px solid var(--line);border-radius:3px;color:var(--ink)}
+  .hooks li::before{content:"“";color:var(--accent-ink);margin-right:.15rem}
+  .hooks li::after{content:"”";color:var(--accent-ink)}
+  ul{padding:0;margin:0}
+
+  /* ---- metrics logbook ---- */
+  .log{width:100%;min-width:520px;border-collapse:collapse;font-size:.9rem}
+  .log th,.log td{text-align:left;padding:.7rem 1rem;border-top:1px solid var(--line)}
+  .log thead th{border-top:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .log td:first-child{font-weight:600}
+  .log td.track{font-family:var(--mono);color:var(--accent-ink);font-variant-numeric:tabular-nums}
+  .log td.avoid{font-family:var(--mono);color:var(--muted);text-decoration:line-through}
+
+  /* ---- source of truth appendix ---- */
+  .sot{width:100%;min-width:560px;border-collapse:collapse;font-size:.88rem}
+  .sot th,.sot td{text-align:left;padding:.65rem 1rem;border-top:1px solid var(--line);vertical-align:top}
+  .sot thead th{border-top:none;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .sot td:first-child{font-family:var(--mono);color:var(--accent-ink);white-space:nowrap;font-size:.78rem}
+  .sot td:nth-child(2){color:var(--muted);width:42%}
+  .sot td:last-child{font-weight:600}
+
+  footer{border-top:1px solid var(--line);padding-block:2.4rem;color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+  footer b{color:var(--ink);font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="word">Built <b>Not</b> Bought<span>Natural · Honest · Built</span></div>
+    <button class="toggle" id="tt" type="button" aria-label="Switch light or dark theme">◐ Theme</button>
+  </div>
+</header>
+
+<div class="wrap hero reveal">
+  <p class="kicker">Personal Brand Blueprint · <b>Failproof Edition</b></p>
+  <h1>The Honest<br>Natural Guy</h1>
+  <p class="thesis"><b>160 → 205 lb in a year.</b> No gear. No gimmicks. Real food, real sleep, one program run consistently. <b>The body as a temple, not a billboard.</b></p>
+  <p class="oneline">A brand you can’t fake your way into — and can’t be caught out of.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">160<span class="u">→</span>205</div><div class="l">Lb, Year One</div></div>
+    <div class="stat"><div class="n"><span class="u">+</span>45</div><div class="l">Lb Natural</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Gear · Gimmicks</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">Offer Tiers</div></div>
+  </div>
+</div>
+
+<!-- 00 FOUNDATION -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">00</div>
+      <div>
+        <h2>The Foundation</h2>
+        <div class="intent">Who you are · why anyone should care</div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="stack">
+        <div class="card">
+          <span class="tag">Identity — what your name means</span>
+          <h3>“The honest natural guy.”</h3>
+          <p>One thought in someone’s head the second they hear your name: proof you can get big <em>naturally</em>, without lying about it. Everything downstream serves this single association.</p>
+        </div>
+        <div class="card">
+          <span class="tag">The Two Paths — your commitment</span>
+          <h3>Fully intentional, from post one.</h3>
+          <p>No more posting randomly and hoping. You control the narrative — honest, natural, faith-rooted — and build trust on purpose instead of by accident.</p>
+        </div>
+        <div class="card">
+          <span class="tag">The mission underneath</span>
+          <h3>Fitness up front. Faith as the foundation.</h3>
+          <p>You train because the body isn’t yours to waste — Orthodox conviction held honestly (“I’m not a saint”), never preached from a pulpit. It’s the moat no fitness clone can copy.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="card" style="border-left:3px solid var(--accent)">
+          <span class="tag">Origin story — your secret weapon (3 acts)</span>
+          <div class="stack" style="gap:.9rem">
+            <p><b style="color:var(--ink)">Act I — Skinny &amp; invisible.</b> 160 lbs. Overlooked, insecure, tired of being the smallest guy in the room. You decided that ended.</p>
+            <p><b style="color:var(--ink)">Act II — Lied to.</b> You followed the “naturals,” ran their programs, bought their stacks — then realized half were juiced, selling a body you could never get their way. That betrayal made you obsessed with the truth.</p>
+            <p><b style="color:var(--ink)">Act III — The proof.</b> So you did it honestly. 160 → 205 in a year. Real food, real sleep, one program. No needles, no lies. Now you show other guys exactly how.</p>
+          </div>
+        </div>
+        <div class="plate">
+          <p class="lab">Failure mode → Guardrail</p>
+          <p><b>Brands built on a persona collapse when the persona cracks.</b></p>
+          <p class="fix"><span class="k">GUARDRAIL</span>Your brand is a documented true story, not a character. You can’t be “found out” for something that’s on the record. Tell the origin until you’re sick of it — that’s when the audience is finally hearing it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 POSITIONING -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">01</div>
+      <div>
+        <h2>The Wedge</h2>
+        <div class="intent">Your contrarian belief · what you’re against</div>
+      </div>
+    </div>
+
+    <p class="lede muted" style="margin-bottom:1.6rem">Left column: what the industry repeats that triggers you. Right column: what you believe instead. These aren’t one-off posts — they’re permanent flags you repeat until they’re yours.</p>
+
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="scroller">
+        <table class="man">
+          <tbody>
+            <tr><td><span class="x">✕</span>“Enhanced” influencers claiming natty</td><td><span class="c">✓</span>Radical honesty — natural, and I’ll prove it</td></tr>
+            <tr><td><span class="x">✕</span>A new “optimal” program every week</td><td><span class="c">✓</span>One honest program, run consistently</td></tr>
+            <tr><td><span class="x">✕</span>“Sleep is for the weak, just grind”</td><td><span class="c">✓</span>Sleep is a training variable — recover like it matters</td></tr>
+            <tr><td><span class="x">✕</span>“You can’t build muscle on fast food”</td><td><span class="c">✓</span>Real food, real life — you can eat Chick-fil-A and get jacked</td></tr>
+            <tr><td><span class="x">✕</span>Godless hustle for status</td><td><span class="c">✓</span>Discipline with a purpose — body <em>and</em> soul</td></tr>
+            <tr><td><span class="x">✕</span>Overcomplicated supplement stacks</td><td><span class="c">✓</span>Simplicity beats optimization you’ll never follow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><span class="tag">Proudly against</span><h3>Fake naturals</h3><p>Publicly. Radical honesty is the flag you plant first.</p></div>
+      <div class="card"><span class="tag">Proudly against</span><h3>Overcomplication</h3><p>The grifters who keep you confused and dependent on their stack.</p></div>
+      <div class="card"><span class="tag">Proudly against</span><h3>Godless hustle culture</h3><p>Grind-for-status emptiness. You build body and soul — not one at the cost of the other.</p></div>
+    </div>
+
+    <div class="plate" style="margin-top:14px">
+      <p class="lab">Failure mode → Guardrail</p>
+      <p><b>“Quick-fix” is a trap word — but your real story is fast.</b> You went +45 lbs in a year. Denying speed would make you a liar too.</p>
+      <p class="fix"><span class="k">GUARDRAIL</span>You’re not anti-<em>fast</em>. You’re anti-<em>fake</em>. Frame it as fast <em>because</em> it was honest and consistent — receipts, not shortcuts. Speed is proof of the system, not a gimmick.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 OFFER LADDER -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">02</div>
+      <div>
+        <h2>The Offer Ladder</h2>
+        <div class="intent">Desired outcome · how the brand pays</div>
+      </div>
+    </div>
+
+    <p class="lede muted" style="margin-bottom:1.6rem">Free content earns attention → each rung buys more access and accountability → every tier feeds testimonials back to the top. <b style="color:var(--ink)">Build order matters: ship the $37 first.</b></p>
+
+    <div class="ladder">
+      <div class="tier" data-first tabindex="0">
+        <div class="price">$37</div>
+        <div class="body"><h3>The System <span class="flag">Build first</span></h3><p>Your program + meal framework + sleep protocol. The skinny→big playbook, self-serve. The front door of the whole brand.</p></div>
+        <div class="target">Target<b>2–3k</b>members</div>
+      </div>
+      <div class="tier" tabindex="0">
+        <div class="price">$47<span style="font-size:.9rem">/mo</span></div>
+        <div class="body"><h3>The Community</h3><p>Membership: the system + community + check-ins + Q&amp;A. Your recurring-revenue engine — where retention is won or lost.</p></div>
+        <div class="target">Target<b>556</b>members</div>
+      </div>
+      <div class="tier" tabindex="0">
+        <div class="price">$997</div>
+        <div class="body"><h3>The Cohort</h3><p>Group coaching + accountability. Small-group calls, direct feedback, real transformations you can screenshot for proof.</p></div>
+        <div class="target">Target<b>36</b>members</div>
+      </div>
+      <div class="tier" tabindex="0">
+        <div class="price">$3,000</div>
+        <div class="body"><h3>Inner Circle</h3><p>1:1 / high-touch mentorship. Body, discipline, and faith. Highest trust, highest margin, fewest seats.</p></div>
+        <div class="target">Target<b>5</b>members</div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="plate">
+        <p class="lab">Failure mode → Guardrail</p>
+        <p><b>Most brands die with an audience and no offer</b> — or stall building all four tiers before earning a dollar.</p>
+        <p class="fix"><span class="k">GUARDRAIL</span>One honest product that ships beats four half-built ones. Launch the $37 with a simple sales page while the audience is small. The upper rungs come <em>after</em> demand proves out.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Expansion trigger — when to widen</span>
+        <h3>When the audience asks for it.</h3>
+        <p>Don’t broaden into faith / mindset / lifestyle on a schedule. Watch the comments and DMs — when they start begging for the deeper “why,” that’s the green light. Until then, stay “the honest natural guy.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CONTENT ENGINE -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">03</div>
+      <div>
+        <h2>The Content Engine</h2>
+        <div class="intent">What you do · so the reputation becomes inevitable</div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <span class="tag">The format split</span>
+        <h3>Short-form captures. Long-form converts.</h3>
+        <p><b style="color:var(--ink)">Instagram Reels</b> = top of funnel: myth-busting, hooks, quick wins. <b style="color:var(--ink)">YouTube</b> = authority + the room where the ladder sells. One long-form shoot, clipped, becomes the week’s Reels.</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent)">
+        <span class="tag">The content filter — run every post through it</span>
+        <h3>Show the discipline · simple &amp; repeatable.</h3>
+        <p>If a post doesn’t <em>show the honest daily work</em> or give one thing a normal busy guy can actually do, it doesn’t reinforce “the honest natural guy.” Cut it or fix it.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:2rem 0 1rem;font-family:var(--display);text-transform:uppercase;font-size:1.3rem">Four content pillars</h3>
+    <div class="steps">
+      <div class="step"><div class="num">P1</div><div><h3>The Proof</h3><p>Your transformation — the split, the food, the timeline, progress shots. Earns the authority everything else stands on.</p></div></div>
+      <div class="step"><div class="num">P2</div><div><h3>The Honest Take</h3><p>Calling out fake naturals, debunking overcomplication, “you don’t need this supplement.” Highest-shareability — your wedge in motion.</p></div></div>
+      <div class="step"><div class="num">P3</div><div><h3>The Simple System</h3><p>Beginner-proof value: the one program, the grocery list, the sleep rules. The free value that feeds the $37 tier.</p></div></div>
+      <div class="step"><div class="num">P4</div><div><h3>The Foundation</h3><p>Faith, discipline, purpose — why you train, kept honest. Turns viewers into loyalists. The moat.</p></div></div>
+    </div>
+
+    <h3 style="margin:2rem 0 1rem;font-family:var(--display);text-transform:uppercase;font-size:1.3rem">Cadence you can hold</h3>
+    <div class="rail">
+      <div class="phase"><div class="when">Weeks 1–2 · you have a job</div><div class="cad">1 YouTube + 3 Reels / week</div><p>Sustainable while you build the habit. Batch-film so a messy week can’t break the streak.</p></div>
+      <div class="phase"><div class="when">Then · once the system’s dialed</div><div class="cad">1 YouTube + daily Reels</div><p>Scale volume only after batching is automatic — not before.</p></div>
+    </div>
+
+    <h3 style="margin:2rem 0 1rem;font-family:var(--display);text-transform:uppercase;font-size:1.3rem">Hooks to open with</h3>
+    <ul class="hooks">
+      <li>Everyone in this gym is lying to you about one thing.</li>
+      <li>I ate Chick-fil-A every week and gained 45 lbs. Here’s how.</li>
+      <li>You don’t need a new program. You need to run the old one for a year.</li>
+      <li>“Natural” influencers hate this post.</li>
+      <li>I went from 160 to 205. No needles. Just this.</li>
+    </ul>
+
+    <div class="plate" style="margin-top:14px">
+      <p class="lab">Failure mode → Guardrail</p>
+      <p><b>Chasing virality bends a brand off-course</b> — you end up known for something you don’t care about.</p>
+      <p class="fix"><span class="k">GUARDRAIL</span>The content filter is non-negotiable. Depth over dizziness. A post that reinforces the association beats a post that “pops” but blurs it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SKILLS & SYSTEM -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">04</div>
+      <div>
+        <h2>Skills &amp; System</h2>
+        <div class="intent">What you must learn · your one bottleneck</div>
+      </div>
+    </div>
+
+    <p class="lede muted" style="margin-bottom:1.4rem">Three gaps, attacked in this order — each one directly protects revenue.</p>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div><h3>Hook writing <span class="muted" style="font-family:var(--mono);font-size:.7rem;letter-spacing:.1em">— cheapest, highest leverage</span></h3><p>Swipe and study hooks; write 10 before every video. Your first 3 seconds decide everything on both YouTube and IG.</p></div></div>
+      <div class="step"><div class="num">02</div><div><h3>Building &amp; selling offers</h3><p>Before scaling content, get the $37 built and a simple sales page live. Learn one funnel end-to-end: landing → checkout → email.</p></div></div>
+      <div class="step"><div class="num">03</div><div><h3>Buyer retention — kill churn</h3><p>For the $47 membership: fast week-one wins, onboarding, a reason to stay. Retention makes the ladder compound instead of leak.</p></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card" style="border-left:3px solid var(--accent)">
+        <span class="tag">Your bottleneck — solve one thing, not a team</span>
+        <h3>Time, around the job.</h3>
+        <p>Caleb’s rule: fix the single thing stopping consistent output. For you that’s hours — so <b style="color:var(--ink)">batching is the system now</b>: one filming block a week yields the video <em>and</em> the Reels. Protect it like a gym session.</p>
+      </div>
+      <div class="card">
+        <span class="tag">First hire — when the ladder funds it</span>
+        <h3>An editor. Nobody else yet.</h3>
+        <p>Editing is the highest-time, lowest-unique-value task. Offloading it buys back the hours your job takes — without diluting the honest, on-camera part only you can do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 RUNWAY -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">05</div>
+      <div>
+        <h2>First 90 Days</h2>
+        <div class="intent">The runway · in order</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">D1</div><div><h3>Days 1–3 · Lock the identity</h3><p>Claim <b style="color:var(--ink)">@builtnotbought</b> on YouTube, IG, TikTok, X — same name everywhere. Write the bio. Set the one-liner.</p></div></div>
+      <div class="step"><div class="num">D2</div><div><h3>Days 4–7 · Plant the flags</h3><p>Publish the 3-act origin story as pinned Reel + channel trailer. Post 3 manifesto Reels (fake naturals / one program / Chick-fil-A).</p></div></div>
+      <div class="step"><div class="num">W2</div><div><h3>Weeks 2–4 · Hold cadence</h3><p>1 YouTube + 3 Reels/week, batch-filmed. Every post passes the filter. Start writing 10 hooks per video.</p></div></div>
+      <div class="step"><div class="num">W5</div><div><h3>Weeks 5–8 · Ship the $37</h3><p>Build The System + a simple sales page. Learn one funnel. Point free content at it. First dollars in.</p></div></div>
+      <div class="step"><div class="num">W9</div><div><h3>Weeks 9–12 · Open the $47</h3><p>Stand up the community with week-one wins baked in. Track retention. Scale toward daily Reels once batching is automatic.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILPROOF LAYER -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">✕</div>
+      <div>
+        <h2>Why Brands Like This Die</h2>
+        <div class="intent">The six death modes · and your built-in safeguard</div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="plate"><p class="lab">Death mode 01 — Inconsistency &amp; burnout</p><p class="fix"><span class="k">SAFEGUARD</span>A cadence you can keep with a job (1+3), batching, and the one-bottleneck rule. Sustainable beats heroic.</p></div>
+      <div class="plate"><p class="lab">Death mode 02 — Audience, no offer</p><p class="fix"><span class="k">SAFEGUARD</span>Ship the $37 early, before the ladder is “ready.” Revenue from day one, not year one.</p></div>
+      <div class="plate"><p class="lab">Death mode 03 — Chasing virality</p><p class="fix"><span class="k">SAFEGUARD</span>The content filter: show discipline, simple &amp; repeatable. Depth over dizziness.</p></div>
+      <div class="plate"><p class="lab">Death mode 04 — Credibility collapse</p><p class="fix"><span class="k">SAFEGUARD</span>Radical transparency: own before/afters + open logs. Never claim what you didn’t do. A documented story can’t be exposed.</p></div>
+      <div class="plate"><p class="lab">Death mode 05 — Over-niching into a corner</p><p class="fix"><span class="k">SAFEGUARD</span>Range within the four pillars now; expand only when the audience asks. Room to grow without whiplash.</p></div>
+      <div class="plate"><p class="lab">Death mode 06 — Leaky ladder / churn</p><p class="fix"><span class="k">SAFEGUARD</span>Retention is a named skill to learn. Week-one wins on the $47 so members compound instead of leaking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">📓</div>
+      <div>
+        <h2>The Logbook</h2>
+        <div class="intent">Track leading indicators — not vanity</div>
+      </div>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="scroller">
+        <table class="log">
+          <thead><tr><th>Stage</th><th>Track this (leading)</th><th>Ignore this (vanity)</th></tr></thead>
+          <tbody>
+            <tr><td>Attention</td><td class="track">Reel saves · YouTube avg view duration</td><td class="avoid">Raw follower count</td></tr>
+            <tr><td>Trust</td><td class="track">Email signups · comments asking “how”</td><td class="avoid">Likes</td></tr>
+            <tr><td>Revenue</td><td class="track">$37 conversion rate</td><td class="avoid">One viral spike</td></tr>
+            <tr><td>Compounding</td><td class="track">$47 monthly retention %</td><td class="avoid">Gross signups</td></tr>
+            <tr><td>Expansion signal</td><td class="track">DMs begging for the deeper “why”</td><td class="avoid">Trend FOMO</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE OF TRUTH -->
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx">§</div>
+      <div>
+        <h2>Source of Truth</h2>
+        <div class="intent">The 14 answers this blueprint is built from</div>
+      </div>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="scroller">
+        <table class="sot">
+          <thead><tr><th>#</th><th>The question you answered</th><th>Your answer</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>The Two Paths — intentional or accidental?</td><td>Fully intentional now</td></tr>
+            <tr><td>02</td><td>Desired outcome?</td><td>Christian self-improvement brand · $37 / $47 / $997 / $3,000 ladder</td></tr>
+            <tr><td>03</td><td>Known for?</td><td>160→205 natural transformation; faith as foundation</td></tr>
+            <tr><td>04</td><td>What to do (content)?</td><td>Long-form YouTube + short-form Instagram</td></tr>
+            <tr><td>05</td><td>What to learn?</td><td>Buyer retention · offers · hook writing</td></tr>
+            <tr><td>06</td><td>Contrarian trigger?</td><td>Fake natties · program-hoppers · “sleep doesn’t matter” · Chick-fil-A myth</td></tr>
+            <tr><td>07</td><td>Proudly against?</td><td>Fake naturals · overcomplication · godless hustle</td></tr>
+            <tr><td>08</td><td>Origin story?</td><td>Skinny insecurity → betrayed by fake natties → 45 lb proof</td></tr>
+            <tr><td>09</td><td>Cadence?</td><td>1 YT + 3 Reels/wk now → daily Reels later</td></tr>
+            <tr><td>10</td><td>Name association?</td><td>“The honest natural guy”</td></tr>
+            <tr><td>11</td><td>Content filter?</td><td>Show the discipline + simple/repeatable</td></tr>
+            <tr><td>12</td><td>Credibility?</td><td>Own before/afters + full transparency logs</td></tr>
+            <tr><td>13</td><td>Expansion timing?</td><td>When the audience asks for it</td></tr>
+            <tr><td>14</td><td>Content bottleneck?</td><td>Time around the job → batch now, editor first hire</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>BUILT NOT BOUGHT</b> — Failproof Personal Brand Blueprint · framework: Caleb Ralston, “How to START a Personal Brand” · assembled from your 14 answers.
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('tt');
+    function cur(){var a=document.documentElement.getAttribute('data-theme');if(a)return a;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+    btn.addEventListener('click',function(){
+      var next=cur()==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      btn.textContent=(next==='dark'?'◑':'◐')+' Theme';
+    });
+  })();
+</script>
