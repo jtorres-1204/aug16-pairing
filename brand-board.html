@@ -1,0 +1,217 @@
+<style>
+  :root{
+    --ground:#14120f; --panel:#1c1916; --panel-2:#221e1a;
+    --ink:#efe9df; --ink-dim:#b3a998; --hair:#332d27;
+    --oxblood:#b3341f; --oxblood-bright:#d8492f; --brass:#b08d57;
+    --chalk:#ece5d8;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --iron:"Arial Black","Arial Narrow Bold",Impact,var(--sans);
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --ground:#e7dfd0; --panel:#efe9dd; --panel-2:#f4efe6; --ink:#1c1712;
+      --ink-dim:#5c5346; --hair:#d3c8b5; --oxblood:#992a17; --oxblood-bright:#b3341f; }
+  }
+  :root[data-theme="dark"]{ --ground:#14120f; --panel:#1c1916; --panel-2:#221e1a;
+    --ink:#efe9df; --ink-dim:#b3a998; --hair:#332d27; --oxblood:#b3341f; --oxblood-bright:#d8492f; }
+  :root[data-theme="light"]{ --ground:#e7dfd0; --panel:#efe9dd; --panel-2:#f4efe6; --ink:#1c1712;
+    --ink-dim:#5c5346; --hair:#d3c8b5; --oxblood:#992a17; --oxblood-bright:#b3341f; }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0;border-top:1px solid var(--hair)}
+  h2{font-family:var(--iron);text-transform:uppercase;letter-spacing:.02em;
+    font-size:clamp(1.4rem,3.5vw,2.1rem);margin:0 0 4px;text-wrap:balance}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;
+    font-size:.7rem;font-weight:700;color:var(--oxblood-bright);margin:0 0 22px}
+  p{max-width:62ch}
+  .dim{color:var(--ink-dim)}
+
+  /* hero */
+  .hero{position:relative;padding:96px 0 72px;border-top:none;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(90deg,transparent 0 38px,rgba(179,52,31,.045) 38px 39px),
+      radial-gradient(120% 90% at 82% -10%,rgba(179,52,31,.16),transparent 60%);
+    pointer-events:none}
+  .kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.34em;
+    font-size:.72rem;font-weight:700;color:var(--ink-dim);margin:0 0 18px}
+  .mark{font-family:var(--iron);text-transform:uppercase;line-height:.86;
+    font-size:clamp(3.2rem,13vw,8.2rem);letter-spacing:-.01em;margin:0;font-weight:900}
+  .mark .not{color:var(--oxblood-bright);
+    -webkit-text-stroke:1px var(--oxblood);text-stroke:1px var(--oxblood)}
+  .tagline{font-family:var(--iron);text-transform:uppercase;letter-spacing:.42em;
+    font-size:clamp(.8rem,2.2vw,1.05rem);margin:22px 0 0;color:var(--ink)}
+  .oneliner{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.6vw,1.5rem);
+    line-height:1.4;max-width:24ch;margin:34px 0 0;color:var(--ink)}
+  .statrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;position:relative}
+  .stat{background:var(--panel);border:1px solid var(--hair);border-left:3px solid var(--oxblood);
+    padding:14px 20px}
+  .stat b{font-family:var(--iron);font-size:1.5rem;display:block;line-height:1}
+  .stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-dim)}
+
+  /* manifesto */
+  .man{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair);
+    border:1px solid var(--hair);margin-top:8px}
+  .man>div{background:var(--panel);padding:16px 18px;font-size:.94rem}
+  .man .l{color:var(--ink-dim)}
+  .man .l::before{content:"✕ ";color:#8a7f70;font-weight:700}
+  .man .r{color:var(--ink)}
+  .man .r::before{content:"→ ";color:var(--oxblood-bright);font-weight:700}
+  .man .head{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;
+    font-size:.68rem;font-weight:700;color:var(--ink-dim);background:var(--panel-2)}
+  .man .head.a::before,.man .head.b::before{content:none}
+
+  /* questions grid */
+  .qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
+    border:1px solid var(--hair)}
+  .q{background:var(--panel);padding:15px 17px}
+  .q .movement{font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--oxblood-bright);font-weight:700}
+  .q .ask{font-family:var(--serif);font-style:italic;font-size:.96rem;margin:5px 0 8px;color:var(--ink)}
+  .q .ans{font-size:.85rem;color:var(--ink-dim)}
+  .q .ans b{color:var(--ink);font-weight:600}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .pillar{background:var(--panel);border:1px solid var(--hair);border-top:3px solid var(--oxblood);
+    padding:18px}
+  .pillar h3{font-family:var(--iron);text-transform:uppercase;font-size:1rem;margin:0 0 8px;letter-spacing:.02em}
+  .pillar p{font-size:.83rem;color:var(--ink-dim);margin:0}
+
+  /* ladder */
+  .ladder{display:flex;flex-direction:column;gap:8px}
+  .rung{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:18px;
+    background:var(--panel);border:1px solid var(--hair);padding:14px 20px}
+  .rung .price{font-family:var(--iron);font-size:1.5rem;color:var(--oxblood-bright)}
+  .rung .name{font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.9rem}
+  .rung .desc{font-size:.82rem;color:var(--ink-dim);grid-column:2;margin-top:2px}
+  .rung .members{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);
+    font-variant-numeric:tabular-nums}
+  .rung.r1{margin-right:0} .rung.r2{margin-right:6%} .rung.r3{margin-right:12%} .rung.r4{margin-right:18%}
+
+  /* foundation verse */
+  .verse{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.4vw,1.4rem);
+    color:var(--ink);max-width:34ch}
+  .verse span{color:var(--brass)}
+
+  footer{border-top:1px solid var(--hair);padding:34px 0 60px;color:var(--ink-dim);font-size:.8rem}
+  .note{background:var(--panel-2);border:1px solid var(--hair);border-left:3px solid var(--brass);
+    padding:14px 18px;font-size:.82rem;color:var(--ink-dim);margin-top:20px;max-width:70ch}
+
+  @media (max-width:720px){
+    .man,.qgrid{grid-template-columns:1fr}
+    .pillars{grid-template-columns:1fr 1fr}
+    .rung{grid-template-columns:80px 1fr;grid-template-rows:auto auto}
+    .rung .members{grid-column:2;justify-self:start}
+    .rung.r2,.rung.r3,.rung.r4{margin-right:0}
+  }
+</style>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Personal Brand Board · Built from Caleb Ralston's Framework</p>
+    <h1 class="mark">Built<br><span class="not">Not</span> Bought</h1>
+    <p class="tagline">Natural · Honest · Built</p>
+    <p class="oneliner">“160 to 205 natural — no gear, no gimmicks, eating real food.”</p>
+    <div class="statrow">
+      <div class="stat"><b>+45 lb</b><span>Natural, one year</span></div>
+      <div class="stat"><b>0</b><span>Needles</span></div>
+      <div class="stat"><b>160→205</b><span>The proof</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The Position</p>
+    <h2>The honest natural guy</h2>
+    <p class="dim">A natural lifter who tells the truth — building the body as a temple, not a billboard. The gains are the hook. The honesty is the wedge. Faith is the foundation. Proof that a skinny, insecure kid can add real muscle without gear, gurus, or grind-till-you're-empty nihilism.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The Manifesto — what triggers you vs. what you believe</p>
+    <h2>Draw the line, repeat it often</h2>
+    <div class="man">
+      <div class="head a">The industry sells</div>
+      <div class="head b">Built Not Bought stands for</div>
+      <div class="l">“Enhanced” influencers claiming natty</div>
+      <div class="r">Radical honesty — natural, and I'll prove it</div>
+      <div class="l">A new “optimal” program every week</div>
+      <div class="r">One honest program, run consistently</div>
+      <div class="l">“Sleep is for the weak, just grind”</div>
+      <div class="r">Sleep is a training variable — recover like it</div>
+      <div class="l">“You can't build muscle on fast food”</div>
+      <div class="r">Real food, real life — Chick-fil-A and still jacked</div>
+      <div class="l">Godless hustle for status</div>
+      <div class="r">Discipline with a purpose — body AND soul</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The Framework — Caleb's 14 questions, your answers</p>
+    <h2>Every question, answered</h2>
+    <div class="qgrid">
+      <div class="q"><div class="movement">Two Paths</div><div class="ask">“Intentional, or letting others define it?”</div><div class="ans"><b>Fully intentional, now.</b></div></div>
+      <div class="q"><div class="movement">Journey · Outcome</div><div class="ask">“What is your desired outcome?”</div><div class="ans">A ladder brand: <b>$37 → $47 → $997 → $3,000.</b></div></div>
+      <div class="q"><div class="movement">Journey · Known for</div><div class="ask">“What must you be known for?”</div><div class="ans"><b>The 160→205 natural transformation.</b></div></div>
+      <div class="q"><div class="movement">Journey · Do</div><div class="ask">“What must you do to get known for it?”</div><div class="ans"><b>Long-form YouTube + short-form Instagram.</b></div></div>
+      <div class="q"><div class="movement">Journey · Learn</div><div class="ask">“What must you learn to make it real?”</div><div class="ans"><b>Buyer retention, offers, hook writing.</b></div></div>
+      <div class="q"><div class="movement">Positioning</div><div class="ask">“What in your niche triggers you?”</div><div class="ans"><b>Fake natties, program-hoppers, sleep-deniers.</b></div></div>
+      <div class="q"><div class="movement">Boundaries</div><div class="ask">“What are you proudly against?”</div><div class="ans"><b>Fake naturals · overcomplication · godless hustle.</b></div></div>
+      <div class="q"><div class="movement">Story</div><div class="ask">“What's your origin story?”</div><div class="ans"><b>Skinny → betrayed by fake natties → the proof.</b></div></div>
+      <div class="q"><div class="movement">Cadence</div><div class="ask">“What can you keep when life gets messy?”</div><div class="ans">1 YT + 3 Reels/wk → <b>1 YT + daily Reels.</b></div></div>
+      <div class="q"><div class="movement">Association</div><div class="ask">“First thing they think of at your name?”</div><div class="ans"><b>“The honest natural guy.”</b></div></div>
+      <div class="q"><div class="movement">Content filter</div><div class="ask">“How does every post reinforce it?”</div><div class="ans"><b>Show the discipline · simple + repeatable.</b></div></div>
+      <div class="q"><div class="movement">Credibility</div><div class="ask">“What proof establishes credibility?”</div><div class="ans"><b>Own before/afters + transparency logs.</b></div></div>
+      <div class="q"><div class="movement">Expansion</div><div class="ask">“When is it right to expand?”</div><div class="ans"><b>When the audience asks for it.</b></div></div>
+      <div class="q"><div class="movement">Team · Bottleneck</div><div class="ask">“What is your content bottleneck?”</div><div class="ans">Time → <b>batch now, editor first hire.</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Content Pillars</p>
+    <h2>Four buckets, rotated</h2>
+    <div class="pillars">
+      <div class="pillar"><h3>The Proof</h3><p>Your transformation — split, food, timeline, progress shots. Earns the authority.</p></div>
+      <div class="pillar"><h3>The Honest Take</h3><p>Calling out fake naturals & overcomplication. Your wedge, most shareable.</p></div>
+      <div class="pillar"><h3>Simple System</h3><p>Beginner-proof value: the one program, the grocery list, the sleep rules.</p></div>
+      <div class="pillar"><h3>The Foundation</h3><p>Faith, discipline, purpose — kept honest. The moat no clone can copy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The Product Ladder</p>
+    <h2>Each rung, more access</h2>
+    <div class="ladder">
+      <div class="rung r1"><div class="price">$37</div><div class="name">The System</div><div class="members">2–3k</div><div class="desc">Program + meal framework + sleep protocol. Build this first.</div></div>
+      <div class="rung r2"><div class="price">$47</div><div class="name">The Community</div><div class="members">556</div><div class="desc">Membership + check-ins + Q&amp;A. The recurring engine.</div></div>
+      <div class="rung r3"><div class="price">$997</div><div class="name">The Cohort</div><div class="members">36</div><div class="desc">Group coaching + accountability. Real, screenshot-able results.</div></div>
+      <div class="rung r4"><div class="price">$3,000</div><div class="name">Inner Circle</div><div class="members">5</div><div class="desc">1:1 mentorship — body, discipline, faith. Highest trust.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The Foundation Underneath</p>
+    <p class="verse">Body as a temple, not a billboard. <span>Fitness first — faith holds it up.</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Brand board generated from your answers to Caleb Ralston's “How to START a Personal Brand (Full Course)” framework.
+    <div class="note"><b>Note on the questions:</b> the 14 above were extracted from the course's published framework and indexed transcript and each surfaced to you via the question tool. YouTube blocks the raw transcript from this environment's IP, so literal per-second completeness is unverified — paste the transcript and any missing question gets added here.</div>
+  </div>
+</footer>
