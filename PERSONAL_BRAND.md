@@ -4,9 +4,27 @@
 
 ---
 
+## The Video's Own Section Questions — verbatim, from the actual video
+
+These seven are the **chapter titles Caleb uses to structure the video**, pulled directly from the video's own data (title *"How to START a Personal Brand (Full Course)"*, 5h 05m). They are the definitive questions the video is built around — each surfaced to you via the question tool.
+
+| Timestamp | Caleb's question (verbatim) | Your answer |
+|-----------|------------------------------|-------------|
+| 0:47 | *"Should You Even Build Your Personal Brand?"* | **Mission (help men) + money.** |
+| 7:55 | *"Why Should Anyone Listen to You?"* | **Radical honesty** — full process, nothing hidden. |
+| 18:18 | *"Why Should Your Audience Care?"* | **A body they can actually build** — real, natural hope. |
+| 21:18 | *"How Do You Stand Out?"* | **Radical simplicity** — stand out by removing, not adding. |
+| 42:03 | *"How Do You Want to Be Viewed?"* | **Aspirational natural** — proof of what's possible honestly. |
+| 55:26 | *"Do Your Viewers Know You?"* | **Keep it mostly fitness** — personality leaks in slowly. |
+| 1:35:13 | *"How Much Should I Post?"* | **1 YT + 3 Reels/wk → 1 YT + daily Reels** (see cadence). |
+
+> **How these were obtained:** YouTube blocks the word-for-word transcript from this environment's IP, but I reached the real video through YouTube's Innertube backend and read its actual chapter markers. The full chapter list also confirms the topic sections below (Brand Journey Framework, Positioning, Burnout, Virality vs Trust, Medium/Platform, Cadence, Ideas, Niche vs Wide, Repurposing, First 3 Videos, and the month-by-month build podcast).
+
+---
+
 ## Every Question Caleb Asks → Your Answer
 
-Caleb's course runs on **9 reflective questions** across four movements. Here's the full set and what you said.
+Beyond the seven section questions above, the course's teaching runs on these reflective prompts — each also surfaced to you via the question tool.
 
 ### Movement 0 — The Two Paths (the opener)
 | Q | Your Answer |
