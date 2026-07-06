@@ -41,6 +41,11 @@ Caleb's course runs on **9 reflective questions** across four movements. Here's 
 | *"What case studies or examples can I share that establish my credibility?"* | **My own before/afters + full transparency logs** (food, sleep, training). |
 | *"How do I know when it is the right time to expand?"* | **When the audience asks for it** — widen into faith/mindset only when the DMs beg for it. |
 
+### Movement 5 — Team Building
+| Q (Caleb's exact words) | Your Answer |
+|---|-------------|
+| *"What is your content bottleneck?"* (solve/hire that one thing first) | **Time around the job** → batching is the fix now; **first hire = an editor** once the ladder funds it. |
+
 ---
 
 ## Brand Essence
@@ -108,6 +113,10 @@ Four buckets, rotated so you never run dry (Caleb warns over-niching burns you o
 - **Weeks 1–2 (you have a job):** 1 YouTube + 3 Reels / week. Sustainable while you build the habit.
 - **Then:** 1 YouTube + **daily** Reels once the system and batching are dialed.
 - **Batch tip:** shoot your week's Reels alongside the YouTube shoot in one session so life-gets-messy weeks don't break the streak.
+
+**Your bottleneck = time (you have a job).** Caleb's rule: solve the *one* bottleneck first, don't build a team. So:
+- **Now:** batching is your system — one filming block per week produces the YouTube video *and* the week's Reels. Protect that block like a gym session.
+- **First hire (when the ladder funds it):** an **editor.** Editing is the highest-time, lowest-unique-value task — offloading it buys back the hours your job takes, without diluting the honest, on-camera part only you can do.
 
 ---
 
