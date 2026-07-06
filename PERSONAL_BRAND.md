@@ -34,7 +34,7 @@ Beyond the seven section questions above, the course's teaching runs on these re
 ### Movement 1 — The Brand Journey Framework (the 4-question chain)
 | Q | Your Answer |
 |---|-------------|
-| 1. What's your **desired outcome**? | A Christian self-improvement brand with a Hamza-style ladder: **$37** (2–3k) → **$47** (556) → **$997** (36) → **$3,000** (5). |
+| 1. What's your **desired outcome**? | A Christian self-improvement brand monetized through a **Skool community**: seed at **$249** → scale to **$800** → **unbundle** into products. |
 | 2. What must you be **known for** to make that inevitable? | Your **160→205 lb natural transformation.** Fitness front, **Orthodox faith as foundation** underneath. |
 | 3. What must you **DO** (what content) to get known for it? | **Long-form YouTube + short-form Instagram** (shorts capture, long-form converts). |
 | 4. What must you **LEARN** to make it real? | **Buyer retention** (kill churn), **building & selling offers**, and **hook writing.** |
@@ -118,7 +118,7 @@ Four buckets, rotated so you never run dry (Caleb warns over-niching burns you o
 
 1. **The Proof** — Your transformation. The split, the food, the timeline, progress shots. Earns the authority everything stands on.
 2. **The Honest Take** — Calling out fake naturals, debunking overcomplication, "you don't need this supplement." Your highest-shareability content and your wedge.
-3. **The Simple System** — Beginner-proof value: the one program, the grocery list, the sleep rules. Free value that feeds the $37 tier.
+3. **The Simple System** — Beginner-proof value: the one program, the grocery list, the sleep rules. Free value that pulls people toward the community.
 4. **The Foundation** — Faith, discipline, purpose. Why you train, kept honest ("I'm not a saint"). This is your moat — no fitness clone can copy it, and it turns viewers into loyalists.
 
 ---
@@ -143,8 +143,8 @@ Four buckets, rotated so you never run dry (Caleb warns over-niching burns you o
 You named three gaps. Attack them in this order — each one directly protects revenue:
 
 1. **Hook writing** *(do first — cheapest, highest leverage).* Study and swipe hooks; write 10 hooks before every video. Your first 3 seconds decide everything on both YT and IG.
-2. **Building & selling offers.** Before scaling content, get the **$37 product** built and a simple sales page live. Learn one funnel end-to-end (landing → checkout → email). Ship one honest product > four half-built ones.
-3. **Buyer retention (kill churn).** For the $47 membership: onboarding, wins in week 1, a reason to stay monthly. Retention is what makes the ladder compound instead of leak.
+2. **Building & selling offers.** Get the **Skool community** live with a simple sales page and learn one funnel end-to-end (landing → checkout → email). Seed it now; ideate the offer with founding members > wait for a perfect plan.
+3. **Buyer retention (kill churn).** The community is recurring revenue: onboarding, wins in week 1, a reason to stay monthly. Retention is what lets you raise the price to $800 and makes the model compound instead of leak.
 
 **Signature hooks to start from:**
 - "Everyone in this gym is lying to you about one thing."
@@ -170,18 +170,17 @@ You named three gaps. Attack them in this order — each one directly protects r
 
 ---
 
-## The Product Ladder
+## The Offer Ladder — Skool Community Model
 
-Mapped to the exact tiers you named — each rung more access, more accountability.
+A three-phase progression, not four static tiers. The community is the engine; you start priced to seed, raise as proof compounds, then unbundle into products. *(Specific community concept to be ideated live with founding members.)*
 
-| Tier | Price | Members (target) | What it is |
-|------|-------|------------------|------------|
-| **1 — The System** | **$37** | 2,000–3,000 | Your program + meal framework + sleep protocol. The skinny→big playbook, self-serve. **Build this first.** |
-| **2 — The Community** | **$47/mo** | ~556 | Membership: the system + community + check-ins + Q&A. Your recurring-revenue engine (retention focus lives here). |
-| **3 — The Cohort** | **$997** | ~36 | Group coaching + accountability. Direct feedback, small-group calls, real transformations to screenshot for Pillar 1. |
-| **4 — Inner Circle** | **$3,000** | ~5 | 1:1 / high-touch mentorship. Body + discipline + faith. Highest trust, highest margin. |
+| Phase | Price | What it is |
+|-------|-------|------------|
+| **01 — Seed the Community** | **$249** | Launch a Skool community at a premium-but-accessible price. Found it early, seed your first members, shape the offer *with* them. **Start here — concept gets ideated live.** |
+| **02 — Scale the Price** | **$800** | As members, content, and visible results compound, raise the price. In Skool, a filling community with real wins earns — and is helped by — a rising price and the urgency it creates. |
+| **03 — Unbundle to Products** | *catalog* | Once the community is established, split its content into standalone products (courses, programs). Lower entry points and a catalog that funnel new members back into the community. |
 
-**Ladder logic:** free content → $37 proves you deliver → $47 keeps them close → $997 gets results worth testifying to → $3,000 for the few who want you personally. Each tier feeds testimonials back to the top.
+**Ladder logic:** free content → seed the Skool at $249 and ideate live → raise to $800 as proof stacks → unbundle products off the proven content. You raise the price and productize *after* the proof exists, not before.
 
 ---
 
@@ -210,7 +209,7 @@ Fitness first, faith underneath. Honest, simple, repeatable.
 2. **Publish the origin story** as your pinned Reel + channel trailer. Credibility deposit.
 3. **Post 3 manifesto Reels** (fake naturals / one program / Chick-fil-A). Plant your flags.
 4. **Hold cadence:** 1 YouTube + 3 Reels/week for two weeks; batch-film to protect the streak.
-5. **Build & ship the $37 product** with a simple sales page — while learning hooks and one funnel. Don't wait for the full ladder.
+5. **Seed the Skool community at $249** with a simple sales page — while learning hooks and one funnel. Ideate the offer live with founding members; raise to $800 and unbundle products later, once proof stacks.
 6. **Repeat the one-liner** in every intro: *"160 to 205, natural — no gear, no gimmicks."*
 
 ---
