@@ -34,7 +34,7 @@ Beyond the seven section questions above, the course's teaching runs on these re
 ### Movement 1 — The Brand Journey Framework (the 4-question chain)
 | Q | Your Answer |
 |---|-------------|
-| 1. What's your **desired outcome**? | A Christian self-improvement brand monetized through a **Skool community**: seed at **$249** → scale to **$800** → **unbundle** into products. |
+| 1. What's your **desired outcome**? | A Christian self-improvement brand monetized through a **Skool community**: **$249 startup + $37/mo** → scale door to **$800** → **unbundle** into products. |
 | 2. What must you be **known for** to make that inevitable? | Your **160→205 lb natural transformation.** Fitness front, **Orthodox faith as foundation** underneath. |
 | 3. What must you **DO** (what content) to get known for it? | **Long-form YouTube + short-form Instagram** (shorts capture, long-form converts). |
 | 4. What must you **LEARN** to make it real? | **Buyer retention** (kill churn), **building & selling offers**, and **hook writing.** |
@@ -176,8 +176,8 @@ A three-phase progression, not four static tiers. The community is the engine; y
 
 | Phase | Price | What it is |
 |-------|-------|------------|
-| **01 — Seed the Community** | **$249** | Launch a Skool community at a premium-but-accessible price. Found it early, seed your first members, shape the offer *with* them. **Start here — concept gets ideated live.** |
-| **02 — Scale the Price** | **$800** | As members, content, and visible results compound, raise the price. In Skool, a filling community with real wins earns — and is helped by — a rising price and the urgency it creates. |
+| **01 — Seed the Community** | **$249 startup + $37/mo** | Launch the Skool at a one-time $249 startup fee plus $37/month. Upfront filters for the committed and funds the build; the monthly is your compounding engine (MRR). Found it early, ideate the offer live with members. **Start here.** |
+| **02 — Scale the Price** | **$800 startup** (+ $37–47/mo) | As members, content, and visible results compound, raise the startup fee for *new* members toward $800; founders stay grandfathered at $249. A filling community with real wins earns — and is helped by — a rising door and its urgency. |
 | **03 — Unbundle to Products** | *catalog* | Once the community is established, split its content into standalone products (courses, programs). Lower entry points and a catalog that funnel new members back into the community. |
 
 **Ladder logic:** free content → seed the Skool at $249 and ideate live → raise to $800 as proof stacks → unbundle products off the proven content. You raise the price and productize *after* the proof exists, not before.
